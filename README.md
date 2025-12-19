@@ -39,4 +39,4 @@
 
 ---
 
-Last Updated at 12/19/2025
+Last Updated at 2025-12-19
