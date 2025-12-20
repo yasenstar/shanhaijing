@@ -6,6 +6,7 @@
   - [概览 (Overview)](#概览-overview)
   - [关于生僻字的说明 (About Some Uncommon Characters)](#关于生僻字的说明-about-some-uncommon-characters)
   - [创建图形数据库](#创建图形数据库)
+    - [在各个`主经`中添加分组属性](#在各个主经中添加分组属性)
   - [内容](#内容)
   - [山经的结构示意图](#山经的结构示意图)
   - [工具与参考资源](#工具与参考资源)
@@ -93,6 +94,28 @@ RETURN j
 ```cypher
 CALL db.schema.visualization
 ```
+
+### 在各个`主经`中添加分组属性
+
+```cypher
+MATCH (z:`主经`)
+SET z.group = CASE
+  WHEN z.name CONTAINS "山经" THEN "山经"
+  WHEN z.name CONTAINS "海外" THEN "海外经"
+  WHEN z.name CONTAINS "海内" THEN "海内经"
+  WHEN z.name CONTAINS "大荒" THEN "大荒经"
+END
+RETURN z.id, z.name, z.group
+```
+
+结果如下面的CSV格式结果：
+
+```cypher
+MATCH (z:`主经`)
+RETURN z.id AS ID, z.name AS `主经名`, z.group AS `主经分组`
+```
+
+![主经分组](img/主经分组.png)
 
 ## 内容
 
