@@ -5,6 +5,11 @@
   - [文言文](#文言文)
   - [白话文](#白话文)
   - [建模](#建模)
+  - [讨论：只有九座山，为什么总结中“凡鹊山之首，自招摇之山以至箕尾之山，凡十山”？](#讨论只有九座山为什么总结中凡鹊山之首自招摇之山以至箕尾之山凡十山)
+  - [模型重构 (Refactor)](#模型重构-refactor)
+    - [`主经`与`次经`的调整](#主经与次经的调整)
+    - [重命名`鹊山`为`南山次经`，在`山`中创建`鹊山`](#重命名鹊山为南山次经在山中创建鹊山)
+    - [重构`南次一经`中的山脉关系](#重构南次一经中的山脉关系)
 
 ## 鹊山山系的山
 
@@ -42,7 +47,7 @@ MERGE (s04:Mountain:山 {id:"nanshanjing01-04", name:"杻陽之山"})
 MERGE (s05:Mountain:山 {id:"nanshanjing01-05", name:"柢山"})
 MERGE (s06:Mountain:山 {id:"nanshanjing01-06", name:"亶爰之山"})
 MERGE (s07:Mountain:山 {id:"nanshanjing01-07", name:"基山"})
-MERGE (s08:Mountain:山 {id:"nanshanjing01-08", name:"基山"})
+MERGE (s08:Mountain:山 {id:"nanshanjing01-08", name:"基山"}) // 此处应为青丘之山
 MERGE (s09:Mountain:山 {id:"nanshanjing01-09", name:"箕尾之山"})
 MERGE (j)-[r1:包括]->(sl)-[r2:包括]->(s01)
 MERGE (s01)-[r01:NEXT_TO]->(s02)-[r02:NEXT_TO]->(s03)-[r03:NEXT_TO]->(s04)-[r04:NEXT_TO]->(s05)-[r05:NEXT_TO]->(s06)-[r06:NEXT_TO]->(s07)-[r07:NEXT_TO]->(s08)-[r08:NEXT_TO]->(s09)
@@ -61,3 +66,85 @@ RETURN j, sl, s01, s02, s03, s04, s05, s06, s07, s08, s09, r1, r2, r01, r02, r03
 创建`鹊山山系`各个山脉与山系关系如下：
 
 ![nanshanjing01-mountains](img/nanshanjing01-mountains.png)
+
+## 讨论：只有九座山，为什么总结中“凡鹊山之首，自招摇之山以至箕尾之山，凡十山”？
+
+山海经南山经第一山系䧿山共有招摇山、堂庭山、猨翼山、杻阳山、柢山、亶爰山、基山、青丘山、箕尾山，一共九座山。为什么山中说“凡十山”？
+
+一种说法(来源：[朱红兵](https://www.zhihu.com/question/388741686))，如下图所示，任务此`鹊山山系`就是大别山脉，对应山海经里面一里相当于现在的100米左右，图中标出了十座山。
+
+![dabieshan](img/大别山脉.jpg)
+
+也有说法认为是原作中遗失了一座山，因为在原文中如果将这九座山直接的距离加起来是2600里，而在总结中说是`凡十山，二千九百五十里`，中间差值为350里，倒是很像是与另一座山的距离。
+
+在后面的大部分山经中，每一座山都有若干文字介绍，但是`鹊山`本身却是一笔带过，不太合理。
+
+笔者这里认为比较合理的是将`鹊山`当作`南次一经`的第一座山，并补充`鹊山`到`招瑶之山`的距离为向东三百五十里，这样可以和总结中的内容契合。
+
+基于这样的理解，要对目前的图形数据库的元模型相关设计进行下面的调整：
+
+- 将`鹊山山系`变更为`鹊山`，类型由`山系`降为`山`，添加相应的属性
+- 节点`山系`不再需要，由其变更为`次经`
+- 可以将`经`的标签变更为`主经`
+- 对不同的`主经`添加另外的标签`山经`、`海外经`、`海内经`和`大荒经`
+
+## 模型重构 (Refactor)
+
+### `主经`与`次经`的调整
+
+```cypher
+MATCH (n:`山系`), (j:Jing)
+SET n:`次经`, j:`主经`
+REMOVE n:`山系`, n:MountainList, j:Jing, j:`经`
+RETURN j, n
+```
+
+调整后的模型schema为：
+
+![schema-0003](img/schema_0003.png)
+
+由于《山海经》是中国的文化著作，在这里可以看到，保留双语的标签名称会将模型结构变得很复杂，所以下面去掉两个英文标签，并且应该不存在`主经`到`山`这个级别的直接包含关系，继续重构：
+
+```cypher
+MATCH (m:`山`), (s:Sea)
+REMOVE m:Mountain, s:Sea
+RETURN m,s
+```
+
+精简后的schema如下：
+
+![schema-0004](img/schema_0004.png)
+
+### 重命名`鹊山`为`南山次经`，在`山`中创建`鹊山`
+
+```cypher
+MATCH (c:次经)
+WHERE c.name = "鹊山"
+SET c.name = "南次一经"
+MERGE (s:山 {id:'nanshanjing01-01', name:'鹊山'})
+MERGE (c)-[r:包括]->(s)
+ON CREATE SET c.createdAt = datetime(), s.createdAt = datetime()
+ON MATCH SET c.updatedAt = datetime(), s.updatedAt = datetime()
+RETURN c,r,s
+```
+
+运行完毕后，可以从下面看到`鹊山`的类型变更成为了`山`：
+
+![refactor-queshan](img/refactor-queshan.png)
+
+因为目前`nanshanjing01-01`之前已经赋给了`招瑶之山`，所以需要将`山`的编号相应平移，同时应该建立`鹊山`到`招瑶之山`的关系，并将`南次一经`包括下面的所有10座山。
+
+### 重构`南次一经`中的山脉关系
+
+在上面建立山脉的命令中，`青丘之山`没有正确建立，错写成`基山`，先用下面的命令进行更正：
+
+```cypher
+MATCH (n:`山`) 
+WHERE n.id = "nanshanjing01-08"
+SET n.name = "青丘之山"
+RETURN n LIMIT 25;
+```
+
+再进行重构：
+
+```cypher

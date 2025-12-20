@@ -84,7 +84,7 @@ RETURN j
 
 在 https://arrows.app/ 同步建立图形数据库的schema如下：
 
-![schema_001](img/schema_001.png)
+![schema_001](img/schema_0001.png)
 
 ## 内容
 
