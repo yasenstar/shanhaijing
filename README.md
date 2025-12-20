@@ -6,6 +6,7 @@
   - [概览 (Overview)](#概览-overview)
   - [关于生僻字的说明 (About Some Uncommon Characters)](#关于生僻字的说明-about-some-uncommon-characters)
   - [内容](#内容)
+  - [创建图形数据库](#创建图形数据库)
 
 ## 概览 (Overview)
 
@@ -45,6 +46,53 @@
 - [海内南经第十](./10_HaiNeiNanJing/README.md), [海内西经第十一](./11_HaiNeiXiJing/README.md), [海内北经第十二](./12_HaiNeiBeiJing/README.md), [海内东经第十三](./13_HaiNeiDongJing/README.md)
 - [大荒东经第十四](./14_DaHuangDongJing/README.md), [大荒南经第十五](./15_DaHuangNanJing/README.md), [大荒西经第十六](./16_DaHuangXiJing/README.md), [大荒北经第十七](./17_DaHuangBeiJing/README.md)
 - [海内经第十八](./18_HaiNeiJing/README.md)
+
+## 创建图形数据库
+
+Neo4j Desktop 2.0.5
+
+| Instance: Culture | Database: ShanHaiJing |
+| --- | --- |
+| ![instance](img/create-instance-culture.png) | ![database](img/create-database-shanhaijing.png) |
+
+```SQL
+MERGE (:Jing {id:1, name:"南山经第一"})
+MERGE (:Jing {id:2, name:"西山经第二"})
+MERGE (:Jing {id:3, name:"北山经第三"})
+MERGE (:Jing {id:4, name:"东山经第四"})
+MERGE (:Jing {id:5, name:"中山经第五"})
+MERGE (:Jing {id:6, name:"海外南经第六"})
+MERGE (:Jing {id:7, name:"海外西经第七"})
+MERGE (:Jing {id:8, name:"海外北经第八"})
+MERGE (:Jing {id:9, name:"海外东经第九"})
+MERGE (:Jing {id:10, name:"海内南经第十"})
+MERGE (:Jing {id:11, name:"海内西经第十一"})
+MERGE (:Jing {id:12, name:"海内北经第十二"})
+MERGE (:Jing {id:13, name:"海内东经第十三"})
+MERGE (:Jing {id:14, name:"大荒东经第十四"})
+MERGE (:Jing {id:15, name:"大荒南经第十五"})
+MERGE (:Jing {id:16, name:"大荒西经第十六"})
+MERGE (:Jing {id:17, name:"大荒北经第十七"})
+MERGE (:Jing {id:18, name:"海内经第十八"})
+```
+
+```
+Created 18 nodes, set 36 properties, added 18 labels
+```
+
+![List of Jing](img/Jing_List.png)
+
+增加`经`作为另外一个的中文的标签：
+
+```SQL
+MATCH (j:Jing)
+SET j:经
+RETURN j
+```
+
+在 https://arrows.app/ 同步建立图形数据库的schema如下：
+
+![schema_001](img/schema_001.png)
 
 ---
 
