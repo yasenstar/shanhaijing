@@ -47,7 +47,7 @@ Neo4j Desktop 2.0.5
 | --- | --- |
 | ![instance](img/create-instance-culture.png) | ![database](img/create-database-shanhaijing.png) |
 
-```SQL
+```cypher
 MERGE (:Jing {id:1, name:"南山经第一"})
 MERGE (:Jing {id:2, name:"西山经第二"})
 MERGE (:Jing {id:3, name:"北山经第三"})

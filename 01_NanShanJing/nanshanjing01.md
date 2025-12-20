@@ -1,54 +1,67 @@
-# 南山经 - 鹊山山系 - 招瑶之山
+# 南山经 - 鹊山山系
 
-- [南山经 - 鹊山山系 - 招瑶之山](#南山经---鹊山山系---招瑶之山)
-  - [原文](#原文)
-  - [生僻字](#生僻字)
+- [南山经 - 鹊山山系](#南山经---鹊山山系)
+  - [鹊山山系的山](#鹊山山系的山)
+  - [文言文](#文言文)
   - [白话文](#白话文)
-  - [图形数据库建模](#图形数据库建模)
+  - [建模](#建模)
 
-## 原文
+## 鹊山山系的山
+
+- [其首曰招瑶之山](./nanshanjing01/nanshanjing01-01.md)
+- [又东三百里曰堂庭之山]()
+- [又东三百八十里曰猨翼之山]()
+- [又东三百七十里曰杻陽之山]()
+- [又东三百里柢山]()
+- [又东三百里曰亶爰之山]()
+- [又东三百曰基山]()
+- [又东三百里曰青丘之山]()
+- [又东三百五十里曰箕尾之山]()
+
+## 文言文
 
 ```
-南山经之首曰鹊山。
-其首曰招瑶之山，临于西海之上。
-多桂多金玉。
-有草焉，其状如韭而青华，其名曰祝馀(yu2)，食之不饥。
-有木焉，其状如穀(gu3)而黑理，其华四照。其名曰迷穀，佩之不迷。
-有兽焉，其状如禺而白耳，伏行人走，其名曰狌狌(sheng1 or xing1)，食之善走。
-丽[鹿/旨](ji3)之水出焉，而西流注于海，其中多育沛，佩之无瘕(jia3)疾。
+凡鹊山之首，自招摇之山以至箕尾之山，凡十山，二千九百五十里，其神状皆鸟身而龙首。其祠之礼：毛，用一璋玉瘗；糈用稌米，一壁，稻米、白莹为席。
 ```
-
-## 生僻字
-
-![ji3](img/ji3.png)
 
 ## 白话文
 
 ```
-南方首列山系叫做鹊山山系。
-鹊山山系的头一座山是招摇山，屹立在西海岸边。
-生长着许多桂树，又蕴藏着丰富的金属矿物和玉石。
-山中有一种草，形状像韭菜却开着青色的花朵，名称是祝余，人吃了它就不感到饥饿。
-山中又有一种树木，形状像构树却呈现黑色的纹理，并且光华照耀四方，名称是迷穀，人佩带它在身上就不会迷失方向。
-山中还有一种野兽，形状像猿猴但长着一双白色的耳朵，既能匍伏爬行，又能像人一样直立行走，名称是狌狌，吃了它的肉可以使人走得飞快。
-丽水从这座山发源，然后往西流入大海，水中有许多叫做育沛的东西，人佩带它在身上就不会生蛊胀玻
+总计鹊山山系之首尾，从招摇山起，直到箕尾山止，一共是十座山，途经二千九百五十里。诸山山神的形状都是鸟的身子龙的头。祭祀山神的典礼；是把畜禽和璋一起埋入地下，祀神的米用稻米，用白茅草来做神的座席。
 ```
 
-## 图形数据库建模
+## 建模
 
-建立`山系`和`山`的节点(node)，根据文言文与白话文，在建立相关对应节点的同时，创建连接的关系：
+根据各经中会有一个或多个山系，山系中包括多个山脉，山脉会有靠近的海，先添加对应节点，Schema如下（注意：山到山用`NEXT_TO`关系表示前后顺序）：
+
+![schema_02](img/schema_02.png)
 
 ```cypher
 MATCH (j:Jing {name:"南山经第一"})
 MERGE (sl:MountainList:山系 {id:"nanshanjing01", name:"鹊山"})
-MERGE (s:Mountain:山 {id:"nanshanjing01-01", name:"招瑶之山"})
-MERGE (o:Sea:海 {name:"西海"})
-MERGE (j)-[r1:包括]->(sl)-[r2:包括]->(s)-[r3:靠近]->(o)
-ON CREATE SET j.createdAt = datetime(), sl.createdAt = datetime(), s.createdAt = datetime(), o.createdAt = datetime()
-ON MATCH SET j.updatedAt = datetime()， sl.updatedAt = datetime(), s.updatedAt = datetime(), o..updatedAt = datetime()
-RETURN j, sl, s, o, r1, r2, r3
+MERGE (s01:Mountain:山 {id:"nanshanjing01-01", name:"招瑶之山"})
+MERGE (s02:Mountain:山 {id:"nanshanjing01-02", name:"堂庭之山"})
+MERGE (s03:Mountain:山 {id:"nanshanjing01-03", name:"猨翼之山"})
+MERGE (s04:Mountain:山 {id:"nanshanjing01-04", name:"杻陽之山"})
+MERGE (s05:Mountain:山 {id:"nanshanjing01-05", name:"柢山"})
+MERGE (s06:Mountain:山 {id:"nanshanjing01-06", name:"亶爰之山"})
+MERGE (s07:Mountain:山 {id:"nanshanjing01-07", name:"基山"})
+MERGE (s08:Mountain:山 {id:"nanshanjing01-08", name:"基山"})
+MERGE (s09:Mountain:山 {id:"nanshanjing01-09", name:"箕尾之山"})
+MERGE (j)-[r1:包括]->(sl)-[r2:包括]->(s01)
+MERGE (s01)-[r01:NEXT_TO]->(s02)-[r02:NEXT_TO]->(s03)-[r03:NEXT_TO]->(s04)-[r04:NEXT_TO]->(s05)-[r05:NEXT_TO]->(s06)-[r06:NEXT_TO]->(s07)-[r07:NEXT_TO]->(s08)-[r08:NEXT_TO]->(s09)
+SET
+    r01.direction = "向东", r01.distance = 300, r01.distanceUnit = "里",
+    r02.direction = "向东", r02.distance = 380, r02.distanceUnit = "里",
+    r03.direction = "向东", r03.distance = 370, r03.distanceUnit = "里",
+    r04.direction = "向东", r04.distance = 300, r04.distanceUnit = "里",
+    r05.direction = "向东", r05.distance = 300, r05.distanceUnit = "里",
+    r06.direction = "向东", r06.distance = 300, r06.distanceUnit = "里",
+    r07.direction = "向东", r07.distance = 300, r07.distanceUnit = "里",
+    r08.direction = "向东", r08.distance = 350, r08.distanceUnit = "里"
+RETURN j, sl, s01, s02, s03, s04, s05, s06, s07, s08, s09, r1, r2, r01, r02, r03, r04, r05, r06, r07, r08
 ```
 
-注意：这里我们同时创建了节点上面的中英文两个标签，这样是为了方便为了的查询，而关系直接使用中文，就是要仔细选择确保关系的名称是足够清晰的动词。
+创建`鹊山山系`各个山脉与山系关系如下：
 
-这个
+![nanshanjing01-mountains](img/nanshanjing01-mountains.png)
