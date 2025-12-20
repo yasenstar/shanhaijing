@@ -7,6 +7,7 @@
   - [关于生僻字的说明 (About Some Uncommon Characters)](#关于生僻字的说明-about-some-uncommon-characters)
   - [创建图形数据库](#创建图形数据库)
   - [内容](#内容)
+  - [工具与参考资源](#工具与参考资源)
 
 ## 概览 (Overview)
 
@@ -99,6 +100,11 @@ CALL db.schema.visualization
 - [海内南经第十](./03_HaiNeiJing/10_HaiNeiNanJing/README.md), [海内西经第十一](./03_HaiNeiJing/11_HaiNeiXiJing/README.md), [海内北经第十二](./12_HaiNeiBeiJing/03_HaiNeiJing/README.md), [海内东经第十三](./03_HaiNeiJing/13_HaiNeiDongJing/README.md)
 - [大荒东经第十四](./04_DaHuangJing/14_DaHuangDongJing/README.md), [大荒南经第十五](./04_DaHuangJing/15_DaHuangNanJing/README.md), [大荒西经第十六](./04_DaHuangJing/16_DaHuangXiJing/README.md), [大荒北经第十七](./04_DaHuangJing/17_DaHuangBeiJing/README.md)
 - [海内经第十八](./03_HaiNeiJing/18_HaiNeiJing/README.md)
+
+## 工具与参考资源
+
+- [下载Neo4j Desktop](https://neo4j.com/download/)
+- [中文生僻字字典查询-汉典之康熙字典](https://www.zdic.net/zd/kx/)
 
 
 ---
