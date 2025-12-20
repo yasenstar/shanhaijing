@@ -1,6 +1,6 @@
-# 南山经 - 鹊山
+# 南山经 - 鹊山山系 - 招瑶之山
 
-- [南山经 - 鹊山](#南山经---鹊山)
+- [南山经 - 鹊山山系 - 招瑶之山](#南山经---鹊山山系---招瑶之山)
   - [原文](#原文)
   - [生僻字](#生僻字)
   - [白话文](#白话文)
@@ -36,4 +36,19 @@
 
 ## 图形数据库建模
 
-建立`山`的节点(node)
+建立`山系`和`山`的节点(node)，根据文言文与白话文，在建立相关对应节点的同时，创建连接的关系：
+
+```cypher
+MATCH (j:Jing {name:"南山经第一"})
+MERGE (sl:MountainList:山系 {id:"nanshanjing01", name:"鹊山"})
+MERGE (s:Mountain:山 {id:"nanshanjing01-01", name:"招瑶之山"})
+MERGE (o:Sea:海 {name:"西海"})
+MERGE (j)-[r1:包括]->(sl)-[r2:包括]->(s)-[r3:靠近]->(o)
+ON CREATE SET j.createdAt = datetime(), sl.createdAt = datetime(), s.createdAt = datetime(), o.createdAt = datetime()
+ON MATCH SET j.updatedAt = datetime()， sl.updatedAt = datetime(), s.updatedAt = datetime(), o..updatedAt = datetime()
+RETURN j, sl, s, o, r1, r2, r3
+```
+
+注意：这里我们同时创建了节点上面的中英文两个标签，这样是为了方便为了的查询，而关系直接使用中文，就是要仔细选择确保关系的名称是足够清晰的动词。
+
+这个
