@@ -32,10 +32,6 @@
 
 ## 建模
 
-根据各经中会有一个或多个山系，山系中包括多个山脉，山脉会有靠近的海，先添加对应节点，Schema如下（注意：山到山用`NEXT_TO`关系表示前后顺序）：
-
-![schema_02](img/schema_02.png)
-
 ```cypher
 MATCH (j:Jing {name:"南山经第一"})
 MERGE (sl:MountainList:山系 {id:"nanshanjing01", name:"鹊山"})
