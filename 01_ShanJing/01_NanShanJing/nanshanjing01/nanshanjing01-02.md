@@ -6,6 +6,8 @@
   - [白话文](#白话文)
   - [图形数据库建模](#图形数据库建模)
     - [(2025-12-20) 山系和山](#2025-12-20-山系和山)
+    - [创建`招瑶之山`的各个内容关系](#创建招瑶之山的各个内容关系)
+    - [截止目前的Schema (2025-12-20, Schema-0005)](#截止目前的schema-2025-12-20-schema-0005)
 
 ## 原文
 
@@ -58,3 +60,32 @@ RETURN j, sl, s, o, r1, r2, r3
 
 ![nanshanjing01-01 create](img/nanshanjing01-01.png)
 
+### 创建`招瑶之山`的各个内容关系
+
+```cypher
+MATCH (s:山 {name:"招瑶之山"})
+SET s.notes = "多桂多金玉。丽[鹿/旨](ji3)之水出焉，而西流注于海，其中多育沛，佩之无瘕(jia3)疾"
+MERGE (c:草 {name:"祝馀(yu2)", notes:"其状如韭而青华，其名曰祝馀(yu2)，食之不饥"})
+MERGE (m:木 {name:"迷穀", notes:"其状如穀(gu3)而黑理，其华四照。其名曰迷穀，佩之不迷"})
+MERGE (b:兽 {name:"狌狌(sheng1 or xing1)", notes:"其状如禺而白耳，伏行人走，其名曰狌狌(sheng1 or xing1)，食之善走"})
+MERGE (w:水 {name:"丽[鹿/旨](ji3)水", notes:"丽[鹿/旨](ji3)之水出焉，而西流注于海，其中多育沛，佩之无瘕(jia3)疾"})
+MERGE (s)-[r1:有]->(c)
+MERGE (s)-[r2:有]->(m)
+MERGE (s)-[r3:有]->(b)
+MERGE (s)<-[r4:出于]-(w)
+ON CREATE SET s.createdAt = datetime(), c.createdAt = datetime(), m.createdAt = datetime(), b.createdAt = datetime(), w.createdAt = datetime()
+ON MATCH SET s.updatedAt = datetime(), c.updatedAt = datetime(), m.updatedAt = datetime(), b.updatedAt = datetime(), w.updatedAt = datetime()
+RETURN s,c,m,b,w,r1,r2,r3,r4
+```
+
+创建了新的节点：草，木，兽，水
+
+![招瑶之山](img/招瑶之山.png)
+
+### 截止目前的Schema (2025-12-20, Schema-0005)
+
+![schema-0005](img/schema_0005.png)
+
+---
+
+最近更新于：2025-12-21
