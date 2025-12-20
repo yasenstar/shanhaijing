@@ -148,3 +148,38 @@ RETURN n LIMIT 25;
 再进行重构：
 
 ```cypher
+MATCH (s1:`山` {name:"鹊山"}), (s2:`山` {name:"招瑶之山"}), (s3:`山` {name:"堂庭之山"}), (s4:`山` {name:"猨翼之山"}), (s5:`山` {name:"杻陽之山"}), (s6:`山` {name:"柢山"}), (s7:`山` {name:"亶爰之山"}), (s8:`山` {name:"基山"}), (s9:`山` {name:"青丘之山"}), (s10:`山` {name:"箕尾之山"})
+MATCH (c:次经 {name:"南次一经"})
+MERGE (s1)-[r:NEXT_TO]->(s2)
+SET
+  s10.id = "nanshanjing01-10", s9.id = "nanshanjing01-09", s8.id = "nanshanjing01-08", s7.id = "nanshanjing01-07", s6.id = "nanshanjing01-06", s5.id = "nanshanjing01-05", s4.id = "nanshanjing01-04", s3.id = "nanshanjing01-03", s2.id = "nanshanjing01-02",
+  r.direction = "向东", r.distance = 350, r.distanceUnit = "里"
+MERGE (c)-[i1:包括]->(s1)
+MERGE (c)-[i2:包括]->(s2)
+MERGE (c)-[i3:包括]->(s3)
+MERGE (c)-[i4:包括]->(s4)
+MERGE (c)-[i5:包括]->(s5)
+MERGE (c)-[i6:包括]->(s6)
+MERGE (c)-[i7:包括]->(s7)
+MERGE (c)-[i8:包括]->(s8)
+MERGE (c)-[i9:包括]->(s9)
+MERGE (c)-[i10:包括]->(s10)
+RETURN s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,r,c,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10
+```
+
+结果如下：
+
+![重构南次一经](img/重构南次一经.png)
+
+通过下面的查询语句可以看到重构后的`南次一经`的结构：
+
+```cypher
+MATCH p1=(c:次经 {name:"南次一经"})-[:包括]->(s:山), p2=(s1:山)-[:NEXT_TO]->(s2:山)
+RETURN p1,p2
+```
+
+![更新的南次一经](img/更新的南次一经.png)
+
+---
+
+最近的更新日期：2025-12-20

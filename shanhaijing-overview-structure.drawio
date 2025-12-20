@@ -1,0 +1,94 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4">
+  <diagram name="Page-1" id="B1IFfeKt9noBAPW81vkZ">
+    <mxGraphModel dx="1426" dy="841" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-1" value="西次一经（十九山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=90;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="260.25" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-2" value="南次二经（十七山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="437.75" y="692" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-3" value="南次三经（十四山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="437.75" y="732" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-4" value="西次二经（十七山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=90;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="219" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-5" value="西次三经（二十三山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=90;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="179" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-6" value="西次四经（十九山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=90;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="139" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-7" value="南次一经（十山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="437.75" y="652" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-8" value="北次一经（二十五山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="441.5" y="112" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-9" value="北次二经（十七山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="441.5" y="72" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-10" value="北次三经（四十六山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="441.5" y="32" width="455" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-11" value="东次一经（十二山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;horizontal=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="679" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-12" value="东次二经（十七山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;horizontal=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="719" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-15" value="东次三经（九山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;horizontal=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="759" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-16" value="东次四经（八山）" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;horizontal=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="799" y="386" width="402.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-17" value="中次一经（十五山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="162" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-18" value="中次二经（九山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="202" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-19" value="中次三经（五山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="242" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-20" value="中次四经（九山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="282" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-21" value="中次五经（十六山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="322" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-22" value="中次六经（十四山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="362" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-23" value="中次七经（十九山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="402" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-24" value="中次八经（二十三山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="442" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-25" value="中次九经（十六&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;山）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="482" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-26" value="中次十经（九山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="522" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-27" value="中次十一经（四十七山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="562" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-28" value="中次十二经（十五山）" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="531.5" y="602" width="267.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-29" value="© Xiaoqi Zhao, 2025, All rights reserved" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="772" width="279" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xm8lJE0T3QXt5OHU4aW0-30" value="山海经之山经结构图" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="213" y="87" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

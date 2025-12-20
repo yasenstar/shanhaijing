@@ -86,13 +86,19 @@ RETURN j
 
 ![schema_001](img/schema_0001.png)
 
+在实际开始图形数据库的建立后，schema的信息可以通过下面的命令显示：
+
+```cypher
+CALL db.schema.visualization
+```
+
 ## 内容
 
-- [南山经第一](./01_NanShanJing/README.md), [西山经第二](./02_XiShanJing/README.md), [北山经第三](./03_BeiShanJing/README.md), [东山经第四](./04_DongShanJing/README.md), [中山经第五](./05_ZhongShanJing/README.md)
-- [海外南经第六](./06_HaiWaiNanJing/README.md), [海外西经第七](./07_HaiWaiXiJing/README.md), [海外北经第八](./08_HaiWaiBeiJing/README.md), [海外东经第九](./09_HaiWaiDongJing/README.md)
-- [海内南经第十](./10_HaiNeiNanJing/README.md), [海内西经第十一](./11_HaiNeiXiJing/README.md), [海内北经第十二](./12_HaiNeiBeiJing/README.md), [海内东经第十三](./13_HaiNeiDongJing/README.md)
-- [大荒东经第十四](./14_DaHuangDongJing/README.md), [大荒南经第十五](./15_DaHuangNanJing/README.md), [大荒西经第十六](./16_DaHuangXiJing/README.md), [大荒北经第十七](./17_DaHuangBeiJing/README.md)
-- [海内经第十八](./18_HaiNeiJing/README.md)
+- [南山经第一](./01_ShanJing/01_NanShanJing/README.md), [西山经第二](./01_ShanJing/02_XiShanJing/README.md), [北山经第三](./01_ShanJing/03_BeiShanJing/README.md), [东山经第四](./01_ShanJing/04_DongShanJing/README.md), [中山经第五](./01_ShanJing/05_ZhongShanJing/README.md)
+- [海外南经第六](./02_HaiWaiJing/06_HaiWaiNanJing/README.md), [海外西经第七](./02_HaiWaiJing/07_HaiWaiXiJing/README.md), [海外北经第八](./08_HaiWaiBeiJing/02_HaiWaiJing/README.md), [海外东经第九](./02_HaiWaiJing/09_HaiWaiDongJing/README.md)
+- [海内南经第十](./03_HaiNeiJing/10_HaiNeiNanJing/README.md), [海内西经第十一](./03_HaiNeiJing/11_HaiNeiXiJing/README.md), [海内北经第十二](./12_HaiNeiBeiJing/03_HaiNeiJing/README.md), [海内东经第十三](./03_HaiNeiJing/13_HaiNeiDongJing/README.md)
+- [大荒东经第十四](./04_DaHuangJing/14_DaHuangDongJing/README.md), [大荒南经第十五](./04_DaHuangJing/15_DaHuangNanJing/README.md), [大荒西经第十六](./04_DaHuangJing/16_DaHuangXiJing/README.md), [大荒北经第十七](./04_DaHuangJing/17_DaHuangBeiJing/README.md)
+- [海内经第十八](./03_HaiNeiJing/18_HaiNeiJing/README.md)
 
 
 ---
