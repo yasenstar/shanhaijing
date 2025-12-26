@@ -81,7 +81,7 @@ Created 18 nodes, set 36 properties, added 18 labels
 
 ```SQL
 MATCH (j:Jing)
-SET j:经
+SET j:主经
 RETURN j
 ```
 
